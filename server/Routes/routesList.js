@@ -1,23 +1,10 @@
 import { Router } from "express";
+import {bikeDataController,  newArrival } from "../Controllers/bikeDataController.js";
 const route=Router()
 route.get('/',(req,res)=>{
     res.send('hey there')
 
 })
-route.get('/bikes',(req,res)=>{
-    res.json([
-        {
-            bike:'ns200',
-            price:178000
-        },
-        {
-            bike:'rtr160',
-            price:150000
-        },
-        {
-            bike:'mt15',
-            price:140000
-        }
-    ])
-})
+route.get('/bikes',bikeDataController)
+route.post('/bikes',newArrival)
 export default route
